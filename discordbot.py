@@ -18,13 +18,29 @@ async def ping(ctx):
 
     
 @bot.event
-async def on_vc_start(member, channel):
-    print(f"{member.name}が{channel.name}でボイスチャットを開始しました。")
+async def on_vc_start(members, channel):
+    now = jst()
+    embed = discord.Embed(title="START log", color=discord.Color.green())
+    embed.add_field(name="時刻", value=now.strftime('%Y /%m / %d　 %H : %M : %S'), inline=False)
+    embed.add_field(name="開始者", value=members.name, inline=False)
+    embed.add_field(name="場所", value=channel.name, inline=False)
+    sent_channel = members.guild.get_channel(876350286027980821)
+    embed.set_footer(icon_url = members.avatar_url, text=members.display_name)
+    await sent_channel.send(embed=embed)
+    member_mention = "<@&876468305001603103>"
+    await sent_channel.send(f"{member_mention} 通話始まったぞ")
 
 
 @bot.event
-async def on_vc_end(member, channel):
-    print(f"{member.name}が{channel.name}のボイスチャットを終了しました。")
+async def on_vc_end(members, channel):
+    now = jst()
+    embed = discord.Embed(title="END log", color=discord.Color.red())
+    embed.add_field(name="時刻", value=now.strftime('%Y /%m / %d　 %H : %M : %S'), inline=False)
+    embed.add_field(name="終了者", value=members.name, inline=False)
+    embed.add_field(name="場所", value=channel.name, inline=False)
+    sent_channel = members.guild.get_channel(876350286027980821)
+    embed.set_footer(icon_url=members.avatar_url, text=members.display_name)
+    await sent_channel.send(embed=embed)
 
 
 @bot.event
