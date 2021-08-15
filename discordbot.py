@@ -2,6 +2,7 @@ from discord.ext import commands
 from os import getenv
 import traceback
 import datetime
+import discord
 
 bot = commands.Bot(command_prefix='/')
 
