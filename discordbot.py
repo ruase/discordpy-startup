@@ -1,6 +1,7 @@
 from discord.ext import commands
 from os import getenv
 import traceback
+import datetime
 
 bot = commands.Bot(command_prefix='/')
 
@@ -55,5 +56,11 @@ async def on_voice_state_update(member, before, after):
             bot.dispatch("vc_end", member, before.channel)  # 発火！
 
             
+def jst():
+    now = datetime.datetime.utcnow()
+    now = now + datetime.timedelta(hours=9)
+    return now
+
+
 token = getenv('DISCORD_BOT_TOKEN')
 bot.run(token)
