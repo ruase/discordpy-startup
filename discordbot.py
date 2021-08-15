@@ -26,10 +26,10 @@ async def on_vc_start(members, channel):
     embed.add_field(name="時刻", value=now.strftime('%Y /%m / %d　 %H : %M : %S'), inline=False)
     embed.add_field(name="開始者", value=members.name, inline=False)
     embed.add_field(name="場所", value=channel.name, inline=False)
-    sent_channel = members.guild.get_channel(876350286027980821)
+    sent_channel = members.guild.get_channel(876478511072809010)
     embed.set_footer(icon_url = members.avatar_url, text=members.display_name)
     await sent_channel.send(embed=embed)
-    member_mention = "<@&876468305001603103>"
+    member_mention = "<@&876478243111317535>"
     await sent_channel.send(f"{member_mention} 通話始まったぞ")
 
 
@@ -40,7 +40,7 @@ async def on_vc_end(members, channel):
     embed.add_field(name="時刻", value=now.strftime('%Y /%m / %d　 %H : %M : %S'), inline=False)
     embed.add_field(name="終了者", value=members.name, inline=False)
     embed.add_field(name="場所", value=channel.name, inline=False)
-    sent_channel = members.guild.get_channel(876350286027980821)
+    sent_channel = members.guild.get_channel(876478511072809010)
     embed.set_footer(icon_url=members.avatar_url, text=members.display_name)
     await sent_channel.send(embed=embed)
 
