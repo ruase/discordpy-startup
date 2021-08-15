@@ -72,9 +72,21 @@ async def remove_t_role(ctx):
     role = discord.utils.get(guild.roles, name="たかはし部－通話通知")
     await ctx.author.remove_roles(role)
     msg = "抹消しました！"
-    await ctx.send(msg)         
+    await ctx.send(msg)
+
             
-            
+@bot.event
+async def on_message_delete(message):
+    now = jst()
+    embed = discord.Embed(title="メッセージ削除", color=discord.Color.red())
+    embed.add_field(name="メッセージ", value=message.content, inline=False)
+    embed.add_field(name="時刻", value=now.strftime('%Y /%m / %d　 %H : %M : %S'), inline=False)
+    embed.add_field(name="チャンネル", value=message.channel.mention, inline=False)
+    embed.set_footer(icon_url=message.author.avatar_url, text=message.author.display_name)
+    channel = message.guild.get_channel(876019691963949126)
+    await channel.send(embed=embed)
+    
+        
 def jst():
     now = datetime.datetime.utcnow()
     now = now + datetime.timedelta(hours=9)
