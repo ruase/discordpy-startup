@@ -57,6 +57,24 @@ async def on_voice_state_update(member, before, after):
             bot.dispatch("vc_end", member, before.channel)  # 発火！
 
             
+@bot.command(name="get_t_role")
+async def get_t_role(ctx):
+    guild = ctx.guild
+    role = discord.utils.get(guild.roles, name="たかはし部－通話通知")
+    await ctx.author.add_roles(role)
+    msg = "付与しました！"
+    await ctx.send(msg)
+
+
+@bot.command(name="remove_t_role")
+async def remove_t_role(ctx):
+    guild = ctx.guild
+    role = discord.utils.get(guild.roles, name="たかはし部－通話通知")
+    await ctx.author.remove_roles(role)
+    msg = "抹消しました！"
+    await ctx.send(msg)         
+            
+            
 def jst():
     now = datetime.datetime.utcnow()
     now = now + datetime.timedelta(hours=9)
