@@ -4,7 +4,7 @@ import traceback
 import datetime
 import discord
 
-bot = commands.Bot(command_prefix='$r')
+bot = commands.Bot(command_prefix='$')
 
 
 @bot.event
@@ -14,7 +14,7 @@ async def on_command_error(ctx, error):
     await ctx.send(error_msg)
 
 
-@bot.command()
+@bot.command(name="ping")
 async def ping(ctx):
     await ctx.send('pong')
 
