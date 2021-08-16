@@ -60,7 +60,7 @@ async def on_voice_state_update(member, before, after):
 @bot.command(name="get_t_role")
 async def get_t_role(ctx):
     guild = ctx.guild
-    role = discord.utils.get(guild.roles, name="たかはし部－通話通知")
+    role = discord.utils.get(guild.roles, name="通話通知")
     await ctx.author.add_roles(role)
     msg = "付与しました！"
     await ctx.send(msg)
@@ -69,7 +69,7 @@ async def get_t_role(ctx):
 @bot.command(name="remove_t_role")
 async def remove_t_role(ctx):
     guild = ctx.guild
-    role = discord.utils.get(guild.roles, name="たかはし部－通話通知")
+    role = discord.utils.get(guild.roles, name="通話通知")
     await ctx.author.remove_roles(role)
     msg = "抹消しました！"
     await ctx.send(msg)
