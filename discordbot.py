@@ -87,6 +87,13 @@ async def on_message_delete(message):
     channel = message.guild.get_channel(876536099172925461)
     await channel.send(embed=embed)
     
+    
+@bot.command(name="help")
+async def help(ctx):
+    await ctx.send("[ping]動作確認を行えます。")
+    await ctx.send("[get_t_role]通話通知ロールを獲得します。")
+    await ctx.send("[get_t_role]通話通知ロールを抹消します。")
+
         
 def jst():
     now = datetime.datetime.utcnow()
