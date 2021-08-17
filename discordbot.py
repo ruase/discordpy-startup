@@ -99,6 +99,15 @@ async def on_message_delete(message):
         embed.set_footer(icon_url=message.author.avatar_url, text=message.author.display_name)
         channel = message.guild.get_channel(876859685146345504)
         await channel.send(embed=embed)
+    else:
+        now = jst()
+        embed = discord.Embed(title="メッセージ削除", color=discord.Color.red())
+        embed.add_field(name="メッセージ", value=message.content, inline=False)
+        embed.add_field(name="時刻", value=now.strftime('%Y /%m / %d　 %H : %M : %S'), inline=False)
+        embed.add_field(name="チャンネル", value=message.channel.mention, inline=False)
+        embed.set_footer(icon_url=message.author.avatar_url, text=message.author.display_name)
+        channel = message.guild.get_channel(876536099172925461)
+        await channel.send(embed=embed)
 
     
     
