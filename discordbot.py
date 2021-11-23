@@ -97,7 +97,7 @@ async def on_message_delete(message):
         embed.add_field(name="時刻", value=now.strftime('%Y /%m / %d　 %H : %M : %S'), inline=False)
         embed.add_field(name="チャンネル", value=message.channel.mention, inline=False)
         embed.set_footer(icon_url=message.author.avatar_url, text=message.author.display_name)
-        channel = message.guild.get_channel(910889746023198761)
+        channel = message.guild.get_channel(876859685146345504)
         await channel.send(embed=embed)
     else:
         now = jst()
