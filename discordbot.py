@@ -90,7 +90,7 @@ async def on_message_delete(message):
    
 @bot.event
 async def on_message_delete(message):
-    if message.channel.id == 852527311509258310:
+    if message.channel.id == 910889746023198761:
         now = jst()
         embed = discord.Embed(title="たかはし部：メッセージ削除", color=discord.Color.red())
         embed.add_field(name="メッセージ", value=message.content, inline=False)
