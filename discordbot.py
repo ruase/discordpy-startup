@@ -1,8 +1,17 @@
-from discord.ext import commands
-from os import getenv
-import traceback
-import datetime
+# インストールした discord.py を読み込む
 import discord
+from datetime import datetime
+import random
+from discord.ext import commands
+from discord.ext import tasks
+import MySQLdb
+import time
+import asyncio
+import html
+from discord.channel import VoiceChannel
+from discord.player import FFmpegPCMAudio
+from google.cloud import texttospeech
+from collections import deque
 
 bot = commands.Bot(command_prefix='&')
 bot.remove_command("help")
