@@ -119,8 +119,7 @@ async def help(ctx):
 
         
 def jst():
-    now = datetime.datetime.utcnow()
-    now = now + datetime.timedelta(hours=9)
+    now = datetime.now()
     return now
 
 
