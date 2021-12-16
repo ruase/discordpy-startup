@@ -15,16 +15,16 @@ from collections import deque
 from os import getenv
 import traceback
 
+bot = commands.Bot(command_prefix='&')
+bot.remove_command("help")
+
+
 @bot.event
 async def on_command_error(ctx, error):
     orig_error = getattr(error, "original", error)
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
-
-bot = commands.Bot(command_prefix='&')
-bot.remove_command("help")
-
-
+    
 
 @bot.command(name="ping")
 async def ping(ctx):
@@ -121,13 +121,13 @@ async def on_message_delete(message):
         await channel.send(embed=embed)
 
     
-    
 @bot.command(name="help")
 async def help(ctx):
     await ctx.send("[ping]動作確認を行えます。")
     await ctx.send("[get_t_role]通話通知ロールを獲得します。")
     await ctx.send("[get_t_role]通話通知ロールを抹消します。")
 
+    
 @tasks.loop(seconds=50)
 async def reminder():
     channel = bot.get_channel(int(921004670699339836))
