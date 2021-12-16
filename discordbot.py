@@ -117,11 +117,23 @@ async def help(ctx):
     await ctx.send("[get_t_role]通話通知ロールを獲得します。")
     await ctx.send("[get_t_role]通話通知ロールを抹消します。")
 
+@tasks.loop(seconds=50)
+async def reminder():
+    channel = bot.get_channel(int(921004670699339836))
+    now_weekday = jst().weekday()
+    datetime_dat = datetime.now()
+    now = datetime_dat.strftime("%H:%M")
+    if now == "22:00":
+        await channel.send("<@&921002690987823114>チャレライやった？")
+        if now_weekday == 2 or now_weekday == 6:
+            await channel.send("<@&921002690987823114>日誌出せよ~")    
+    
         
 def jst():
     now = datetime.now()
     return now
 
 
+reminder.start()
 token = getenv('DISCORD_BOT_TOKEN')
 bot.run(token)
