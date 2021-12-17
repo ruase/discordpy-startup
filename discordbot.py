@@ -130,6 +130,23 @@ async def reminder():
         if now_weekday == 2 or now_weekday == 6:
             await channel.send("<@&921002690987823114>日誌出せよ~")
 
+            
+@bot.command(name="reminder_join")
+async def reminder_join(ctx):
+    guild = ctx.guild
+    role = discord.utils.get(guild.roles, name="リマインダー通知")
+    await ctx.author.add_roles(role)
+    msg = "リマインダー通知をONにしました。"
+    await ctx.send(msg)
+
+
+@bot.command(name="reminder_resign")
+async def reminder_join(ctx):
+    guild = ctx.guild
+    role = discord.utils.get(guild.roles, name="リマインダー通知")
+    await ctx.author.remove_roles(role)
+    msg = "リマインダー通知をOFFにしました。"
+    await ctx.send(msg)
     
         
 def jst():
