@@ -122,13 +122,14 @@ async def help(ctx):
 @tasks.loop(seconds=50)
 async def reminder():
     channel = bot.get_channel(int(921004670699339836))
-    now_weekday = jst().weekday()
-    datetime_dat = datetime.now()
-    now = datetime_dat.strftime("%H:%M")
-    if now == "22:00":
+    now_jst = jst()
+    now_weekday = now_jst.weekday()
+    now = now_jst.strftime("%H:%M")
+    if now == "21:00":
         await channel.send("<@&921002690987823114>チャレライやった？")
         if now_weekday == 2 or now_weekday == 6:
-            await channel.send("<@&921002690987823114>日誌出せよ~")    
+            await channel.send("<@&921002690987823114>日誌出せよ~")
+
     
         
 def jst():
