@@ -1,5 +1,5 @@
 # インストールした discord.py を読み込む
-from datetime import datetime
+import datetime
 import discord
 from discord.ext import commands
 from discord.ext import tasks
@@ -132,7 +132,8 @@ async def reminder():
     
         
 def jst():
-    now = datetime.now()
+    now = datetime.datetime.utcnow()
+    now = now + datetime.timedelta(hours=9)
     return now
 
 
