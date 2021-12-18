@@ -119,7 +119,7 @@ async def help(ctx):
     await ctx.send("[get_t_role]通話通知ロールを抹消します。")
 
     
-@tasks.loop(seconds=50)
+@tasks.loop(seconds=60)
 async def reminder():
     channel = bot.get_channel(int(921004670699339836))
     now_jst = jst()
