@@ -125,8 +125,8 @@ async def reminder():
     now_jst = jst()
     now_weekday = now_jst.weekday()
     now = now_jst.strftime("%H:%M")
-    channel.send(now)
-    channel.send(now_weekday)
+    await channel.send(now)
+    await channel.send(now_weekday)
     if now == "21:00":
         await channel.send("<@&921002690987823114>チャレライやった？")
         if now_weekday == 2 or now_weekday == 6:
